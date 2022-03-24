@@ -1,0 +1,153 @@
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="home-tab">
+          <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="" role="tab"
+                  aria-controls="overview" aria-selected="true">Internship</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+
+          <!-- ---Flash messages--- -->
+          <% if(internship_toast !='' ){ %>
+            <% internship_toast.forEach(message=>{%>
+              <div style="text-align: center; position: relative;
+            text-align: center;  width: 100%;border-top-left-radius: 20px;
+    border-top-right-radius: 20px;" class="alert alert-<%=message.type%> ">
+                <button type="button" class="close" data-dismiss="alert" style="position: relative; right:10px;
+              bottom: 0px; border: none;">&times;</button>
+                <strong>
+                  <%= message.intro %>
+                </strong>
+                <%= message.message %>
+              </div>
+              <%}) %>
+                <%}%>
+                  <!-- ---Flash messages--- -->
+
+                  <div class="card-body">
+                    <h4 class="card-title">Details</h4>
+                    <p class="card-description">
+                      Internship Details
+                    </p>
+
+                    <!-- Backend code -->
+
+                    <form class="forms-sample" method="post" >
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputName1">Title<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Title"
+                              name="title"  required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputEmail3">Location<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Location"
+                              name="location"  required >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Internship Nature<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4"
+                              placeholder="e.g: Part-Time" name="internship_nature" required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Salary Range<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4" placeholder="e.g: $ 90k  -  $ 100k"
+                              name="salary_range" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Internship Description<span style="color: red"  >*</span></label>
+                            <textarea type="text" class="form-control" id="exampleInputPassword4"
+                              placeholder="Internship Description" style="min-height: 6rem;" name="internship_desc" required></textarea>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Qualifications<span style="color: red">*</span></label>
+                            <textarea type="text" class="form-control" id="exampleInputPassword4" 
+                              placeholder="Qualifications" style="min-height: 6rem;" name="qualification" required></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputCity1">Vacancy<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputCity1"
+                              placeholder="e.g: 120" name="vacancy" >
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Category<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4" placeholder="e.g: Management"
+                              name="category" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Responsibilities<span style="color: red"  >*</span></label>
+                            <textarea type="text" class="form-control" id="exampleInputPassword4"
+                              placeholder="Responsibilities" style="min-height: 6rem;" name="responsibility" required></textarea>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Company Details<span style="color: red">*</span></label>
+                            <textarea type="text" class="form-control" id="exampleInputPassword4" 
+                              placeholder="Company Details" style="min-height: 6rem;" name="companydetails" required></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary me-2">Create</button>
+                    </form>
+
+                    <!--  -->
+                  </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>

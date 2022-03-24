@@ -1,0 +1,166 @@
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="home-tab">
+          <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="" role="tab"
+                  aria-controls="overview" aria-selected="true">College</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+
+          <!-- ---Flash messages--- -->
+          <% if(college_toast !='' ){ %>
+            <% college_toast.forEach(message=>{%>
+              <div style="text-align: center; position: relative;
+            text-align: center;  width: 100%;border-top-left-radius: 20px;
+    border-top-right-radius: 20px;" class="alert alert-<%=message.type%> ">
+                <button type="button" class="close" data-dismiss="alert" style="position: relative; right:10px;
+              bottom: 0px; border: none;">&times;</button>
+                <strong>
+                  <%= message.intro %>
+                </strong>
+                <%= message.message %>
+              </div>
+              <%}) %>
+                <%}%>
+                  <!-- ---Flash messages--- -->
+
+                  <div class="card-body">
+                    <h4 class="card-title">Details</h4>
+                    <p class="card-description">
+                      College Details
+                    </p>
+
+                    <!-- Backend code -->
+
+                    <form class="forms-sample" method="post" >
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputName1">Name<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="e.g: King Edward College"
+                              name="name"  required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputEmail3">City<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputEmail3" placeholder="e.g: Karachi"
+                              name="city"  required >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Country<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4"
+                              placeholder="e.g: Pakistan" name="country" required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Street Address<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4" placeholder="e.g: A-24 Muhammad Ali Society"
+                              name="street_address" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">About College<span style="color: red"  >*</span></label>
+                            <textarea type="text" class="form-control" id="exampleInputPassword4"
+                              placeholder="e.g: Best college located in Karachi for Pre-medical..." style="min-height: 6rem;" name="about_college" required></textarea>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Eligibility Criteria<span style="color: red">*</span></label>
+                            <textarea type="text" class="form-control" id="exampleInputPassword4" 
+                              placeholder="e.g: Qualifications, Only students of Matric Board, etc" style="min-height: 6rem;" name="eligibility" required></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputCity1">Total no. of Seats<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputCity1"
+                              placeholder="e.g: 120 seats" name="seats" >
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Minimum Percentage Required<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4" placeholder="e.g: 80% "
+                              name="minimum_percent" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Rank<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4" placeholder="e.g: 3rd"
+                              name="rank" required>
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Responsibilities<span style="color: red"  >*</span></label>
+                            <textarea type="text" class="form-control" id="exampleInputPassword4"
+                              placeholder="Responsibilities" style="min-height: 6rem;" name="responsibility" required></textarea>
+                          </div>
+                        </div> -->
+                        
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="scholarship">Scholarship<span style="color: red">*</span></label>
+                            <select name="scholarship" id="scholarship" class="form-control" placeholder="select a option" required>
+                              <option disabled selected value> -- select an option -- </option>
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+                            </select>
+                            <!-- <textarea type="text" class="form-control" id="exampleInputPassword4" 
+                              placeholder="Company Details" style="min-height: 6rem;" name="companydetails" required></textarea> -->
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary me-2">Create</button>
+                    </form>
+
+                    <!--  -->
+                  </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>

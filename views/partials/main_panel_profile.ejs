@@ -1,0 +1,145 @@
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="home-tab">
+          <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="" role="tab"
+                  aria-controls="overview" aria-selected="true">Profile</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+
+          <!-- ---Flash messages--- -->
+          <% if(profile_toast !='' ){ %>
+            <% profile_toast.forEach(message=>{%>
+              <div style="text-align: center; position: relative;
+            text-align: center;  width: 100%;border-top-left-radius: 20px;
+    border-top-right-radius: 20px;" class="alert alert-<%=message.type%> ">
+                <button type="button" class="close" data-dismiss="alert" style="position: relative; left:675px;
+              bottom: 0px; border: none;">&times;</button>
+                <strong>
+                  <%= message.intro %>
+                </strong>
+                <%= message.message %>
+              </div>
+              <%}) %>
+                <%}%>
+                  <!-- ---Flash messages--- -->
+
+                  <div class="card-body">
+                    <h4 class="card-title">Details</h4>
+                    <p class="card-description">
+                      Admin Details
+                    </p>
+
+                    <!-- Backend code -->
+
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputName1">Name<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name"
+                              name="name" value="<%=Details.name%>" required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputEmail3">Email address<span style="color: red">*</span></label>
+                            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email"
+                              name="email" value="<%=Details.email%>" required readonly="true">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Password<span style="color: red">*</span></label>
+                            <input type="password" class="form-control" id="exampleInputPassword4"
+                              placeholder="Password" name="current_password" required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Role<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Role"
+                              name="role" value="<%=Details.role%>" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">New Password<span style="color: red">*</span></label>
+                            <input type="password" class="form-control" id="exampleInputPassword4"
+                              placeholder="New Password" name="new_password" required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Confirm Password<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4"
+                              placeholder="Confirm New Password" name="confirm_password" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputCity1">Phone</label>
+                            <input type="text" class="form-control" id="exampleInputCity1"
+                              placeholder="e.g: +92 334 3326007" name="phone" value="<%=Details.phone%>">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Status<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Role"
+                              name="status" value="<%=Details.status%>" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Profile Picture<span style="color: red;">*</span></label>
+
+                        <div class="input-group col-xs-12">
+                          <input type="file" class="form-control file-upload-info" placeholder="Upload Image"
+                            name="profile_img" style="height: 45px;">
+                        </div>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary me-2">Update</button>
+
+
+
+                    </form>
+
+                    <!--  -->
+                  </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>
