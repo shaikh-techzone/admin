@@ -52,7 +52,7 @@ router.get('/admin/dashboard/viewinternships/delete/:id', async (req, res) => {
 
         
         var myquery = { _id: internshipID };
-        await internship.deleteOne(myquery,(err)=>{
+        internship.deleteOne(myquery,(err)=>{
             if(err){
                 throw err;
             }else{
