@@ -52,7 +52,7 @@ router.get('/admin/dashboard/viewjobs/delete/:id', async (req, res) => {
 
         
         var myquery = { _id: jobID };
-        await job.deleteOne(myquery,(err)=>{
+        job.deleteOne(myquery,(err)=>{
             if(err){
                 throw err;
             }else{

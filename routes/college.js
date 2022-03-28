@@ -3,6 +3,8 @@ const express = require('express');
 
 const user = require('../schemas/login');
 const college = require('../schemas/college');
+const activity = require('../schemas/activities');
+
 
 const router = express.Router();
 
@@ -82,7 +84,16 @@ router.post('/admin/dashboard/college', async (req, res) => {
                 res.status(201).redirect('/admin/dashboard/college');
                 console.log(err)
             })
-
+            let user = req.session.user;
+            let task = `college ${name}`;
+    
+            const Activity = activity({
+                user,
+                task
+            })
+            .save()
+            .then(()=>{})
+            .catch((err)=>{})
     }
 });
 

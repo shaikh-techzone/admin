@@ -1,6 +1,12 @@
 const express = require('express');
 
 const login = require('../schemas/login');
+const college = require('../schemas/college');
+const university = require('../schemas/university');
+const internship = require('../schemas/internship');
+const job = require('../schemas/job');
+const activity = require('../schemas/activities');
+
 
 const router = express.Router();
 
@@ -46,15 +52,26 @@ router.post('/admin/login', async (req, res) => {
             res.status(201).redirect('login');
         })
 });
-
+const counter = async(col) => {
+    let count = 0;
+    count = await col.countDocuments();
+    return count;
+       
+}
 router.get('/admin/dashboard', async (req, res) => {
 
     if (!req.session.user) {
         return res.status(401).redirect('/admin/login');
     } else {
-        let Admin, AdminEmail, Details, userList;
+        let Admin, AdminEmail, Details, userList, noOfColleges, noOfUniversities, noOfJobs, noOfInternships, noOfScholarships, activities;
         Admin = req.session.user;
         AdminEmail = req.session.email;
+        noOfColleges = await counter(college);
+        noOfUniversities = await counter(university);
+        noOfJobs = await counter(job);
+        noOfInternships = await counter(internship);
+
+        console.log(noOfColleges, noOfUniversities, noOfJobs, noOfInternships)
 
         await login.find()
             .then((result) => {
@@ -70,9 +87,13 @@ router.get('/admin/dashboard', async (req, res) => {
                 Details = result;
                 // console.log(Details)
             })
+        
+        await activity.find()
+            .then((result)=>{
+                activities = result;
+            })
 
-
-        res.status(201).render('index', { title: 'Admin Dashboard', Details, userList });
+        res.status(201).render('index', { title: 'Admin Dashboard', Details, userList, noOfColleges, noOfUniversities, noOfJobs, noOfInternships, activities });
 
     }
 
@@ -90,10 +111,10 @@ router.get('/admin/delete/:id', async (req, res) => {
         console.log(userID)
 
         var myquery = { _id: userID };
-        await login.deleteOne(myquery,(err)=>{
-            if(err){
+        await login.deleteOne(myquery, (err) => {
+            if (err) {
                 throw err;
-            }else{
+            } else {
                 return res.status(201).redirect('/admin/dashboard');
             }
         })

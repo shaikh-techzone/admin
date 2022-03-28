@@ -1,0 +1,91 @@
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="home-tab">
+            <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="" role="tab"
+                    aria-controls="overview" aria-selected="true">View Universities</a>
+                </li>
+              </ul>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row mt-2">
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+  
+            <!-- ---Flash messages--- -->
+            <% if(viewUniversity_toast !='' ){ %>
+              <% viewUniversity_toast.forEach(message=>{%>
+                <div style="text-align: center; position: relative;
+              text-align: center;  width: 100%;border-top-left-radius: 20px;
+      border-top-right-radius: 20px;" class="alert alert-<%=message.type%> ">
+                  <button type="button" class="close" data-dismiss="alert" style="position: relative; right:10px;
+                bottom: 0px; border: none;">&times;</button>
+                  <strong>
+                    <%= message.intro %>
+                  </strong>
+                  <%= message.message %>
+                </div>
+                <%}) %>
+                  <%}%>
+                    <!-- ---Flash messages--- -->
+                    <div class="card-body">
+                        <h4 class="card-title">Details</h4>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="table-responsive">
+                              <table id="order-listing" class="table">
+                                <thead>
+                                  <tr>
+                                      <th>S #</th>
+                                      <th>Univeristy</th>
+                                      <th>City</th>
+                                      <th>Country</th>
+                                      <th>Address</th>
+                                      <th>Steats</th>
+                                      <th>Rank</th>
+                                      <th>Type</th>
+                                      <th>Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <%if(Universities.length > 0){ %>
+                                        <% let count = 1 %>
+                                       <% Universities.forEach(university => { %>
+                                  <tr>
+                                      <td><%= count++ %></td>
+                                      <td><%= university.name %></td>
+                                      <td><%= university.city %></td>
+                                      <td><%= university.country %></td>
+                                      <td><%= university.street_address %></td>
+                                      <td><%= university.seats %></td>
+                                      <td><%= university.rank %></td>
+                                      <td><%= university.type %></td>
+                                      <td>
+                                        <button class="btn btn-outline-primary">View</button>
+                                        <a href="/admin/dashboard/viewuniversities/delete/<%= university._id %>" class="btn btn-outline-danger">Delete</button>
+                                      </td>
+                                  </tr>
+                                <%})%>
+                                <%}%>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          </div>
+        </div>
+      </div>
+  
+  
+    </div>
+  </div>
+  </div>

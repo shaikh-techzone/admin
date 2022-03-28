@@ -3,6 +3,7 @@ const express = require('express');
 
 const user = require('../schemas/login');
 const job = require('../schemas/job');
+const activity = require('../schemas/activities');
 
 const router = express.Router();
 
@@ -81,7 +82,16 @@ router.post('/admin/dashboard/job', async (req, res) => {
             res.status(201).redirect('/admin/dashboard/job');
             console.log(err)
         })
+        let user = req.session.user;
+        let task = `job ${title}`;
 
+        const Activity = activity({
+            user,
+            task
+        })
+        .save()
+        .then(()=>{})
+        .catch((err)=>{})
     }
 });
 

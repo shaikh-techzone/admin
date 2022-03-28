@@ -17,6 +17,7 @@ const viewinternship = require('./routes/viewInternship');
 const college = require('./routes/college');
 const viewcollege = require('./routes/viewCollege');
 const university = require('./routes/university');
+const viewuniversity = require('./routes/viewUniversity');
 
 //Creating express app
 const app = express();
@@ -73,3 +74,4 @@ app.use('/', viewinternship);
 app.use('/', college);
 app.use('/', viewcollege);
 app.use('/', university);
+app.use('/', viewuniversity);
