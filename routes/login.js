@@ -6,9 +6,13 @@ const university = require('../schemas/university');
 const internship = require('../schemas/internship');
 const job = require('../schemas/job');
 const activity = require('../schemas/activities');
+const clogger = require('../schemas/userLog');
 
 
 const router = express.Router();
+
+//file global variables
+let inTime, outTime;
 
 router.get('/', (req, res) => {
 
@@ -51,19 +55,22 @@ router.post('/admin/login', async (req, res) => {
             req.flash('login_toast', login_toast)
             res.status(201).redirect('login');
         })
+
+    inTime = new Date();
+    console.log(inTime)
 });
-const counter = async(col) => {
+const counter = async (col) => {
     let count = 0;
     count = await col.countDocuments();
     return count;
-       
+
 }
 router.get('/admin/dashboard', async (req, res) => {
 
     if (!req.session.user) {
         return res.status(401).redirect('/admin/login');
     } else {
-        let Admin, AdminEmail, Details, userList, noOfColleges, noOfUniversities, noOfJobs, noOfInternships, noOfScholarships, activities;
+        let Admin, AdminEmail, Details, userList, noOfColleges, noOfUniversities, noOfJobs, noOfInternships, noOfScholarships, activities, loggerList;
         Admin = req.session.user;
         AdminEmail = req.session.email;
         noOfColleges = await counter(college);
@@ -71,7 +78,7 @@ router.get('/admin/dashboard', async (req, res) => {
         noOfJobs = await counter(job);
         noOfInternships = await counter(internship);
 
-        console.log(noOfColleges, noOfUniversities, noOfJobs, noOfInternships)
+        // console.log(noOfColleges, noOfUniversities, noOfJobs, noOfInternships)
 
         await login.find()
             .then((result) => {
@@ -87,13 +94,18 @@ router.get('/admin/dashboard', async (req, res) => {
                 Details = result;
                 // console.log(Details)
             })
-        
+
         await activity.find()
-            .then((result)=>{
+            .then((result) => {
                 activities = result;
             })
 
-        res.status(201).render('index', { title: 'Admin Dashboard', Details, userList, noOfColleges, noOfUniversities, noOfJobs, noOfInternships, activities });
+        await clogger.find()
+            .then((result)=>{
+                loggerList = result;
+            })
+            console.log("Login.js"+loggerList)
+        res.status(201).render('index', { title: 'Admin Dashboard', Details, userList, noOfColleges, noOfUniversities, noOfJobs, noOfInternships, activities, loggerList });
 
     }
 
@@ -122,8 +134,23 @@ router.get('/admin/delete/:id', async (req, res) => {
 
 });
 
-router.get('/admin/logout', (req, res) => {
 
+const customLogger = (inTime, outTime, req) => {
+    let user = req.session.user;
+    let newUserLog = new clogger({
+        user,
+        inTime,
+        outTime
+    })
+    newUserLog.save()
+    .then((result)=>{})
+    .catch((error)=>{})
+}
+
+
+router.get('/admin/logout', (req, res) => {
+    outTime = new Date();
+    customLogger(inTime, outTime, req);
     req.session.user = null;
     Details = null;
     res.redirect('/');
