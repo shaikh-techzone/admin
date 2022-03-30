@@ -1,271 +1,331 @@
 <div class="main-panel">
-    <div class="content-wrapper">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="home-tab">
-            <div class="d-sm-flex align-items-center justify-content-between border-bottom">
-              <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview"
-                    role="tab" aria-controls="overview" aria-selected="true">Overview</a>
-                </li>
-               
-              </ul>
-              <div>
-                <div class="btn-wrapper">
-                  <a href="mailto:someone@example.com" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i>
-                    Share</a>
-                  <button href="#" class="btn btn-otline-dark" onclick="p_page()"><i class="icon-printer"></i> Print</button>
-                  <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
-                </div>
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="home-tab">
+          <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab"
+                  aria-controls="overview" aria-selected="true">Overview</a>
+              </li>
+
+            </ul>
+            <div>
+              <div class="btn-wrapper">
+                <a href="mailto:someone@example.com" class="btn btn-otline-dark align-items-center"><i
+                    class="icon-share"></i>
+                  Share</a>
+                <button href="#" class="btn btn-otline-dark" onclick="p_page()"><i class="icon-printer"></i>
+                  Print</button>
+                <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
               </div>
             </div>
-            <div class="tab-content tab-content-basic">
-              <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="statistics-details d-flex align-items-center justify-content-between">
-                      <div>
-                        <p class="statistics-title">Total no. of Jobs</p>
-                        <h3 class="rate-percentage"><%= noOfJobs%>.00</h3>
-                        <!-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p> -->
+          </div>
+          <div class="tab-content tab-content-basic">
+            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="statistics-details d-flex align-items-center justify-content-between">
+                    <div>
+                      <p class="statistics-title">Total no. of Jobs</p>
+                      <h3 class="rate-percentage">
+                        <%= noOfJobs%>.00
+                      </h3>
+                      <!-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p> -->
+                    </div>
+                    <div>
+                      <p class="statistics-title">Total no. of Internships</p>
+                      <h3 class="rate-percentage">
+                        <%= noOfInternships%>.00
+                      </h3>
+                      <!-- <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p> -->
+                    </div>
+                    <div>
+                      <p class="statistics-title">Total no. of Universities </p>
+                      <h3 class="rate-percentage">
+                        <%= noOfUniversities%>.00
+                      </h3>
+                      <!-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p> -->
+                    </div>
+                    <div class="d-none d-md-block">
+                      <p class="statistics-title">Total no. of Colleges</p>
+                      <h3 class="rate-percentage">
+                        <%= noOfColleges%>.00
+                      </h3>
+                      <!-- <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p> -->
+                    </div>
+                    <div class="d-none d-md-block">
+                      <p class="statistics-title">Total no. of Scholarships</p>
+                      <h3 class="rate-percentage">68.8</h3>
+                      <!-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p> -->
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4 d-flex flex-column">
+                  <div class="row flex-grow">
+                    <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                      <div class="card card-rounded">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="d-flex justify-content-between align-items-center mb-2 mb-sm-0">
+                                <div class="circle-progress-width">
+                                  <div id="totalVisitors" class="progressbar-js-circle pr-2"></div>
+                                </div>
+                                <div>
+                                  <p class="text-small mb-2">Total Visitors</p>
+                                  <h4 class="mb-0 fw-bold">26.80%</h4>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="circle-progress-width">
+                                  <div id="visitperday" class="progressbar-js-circle pr-2"></div>
+                                </div>
+                                <div>
+                                  <p class="text-small mb-2">Visits per day</p>
+                                  <h4 class="mb-0 fw-bold">9065</h4>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <p class="statistics-title">Total no. of Internships</p>
-                        <h3 class="rate-percentage"><%= noOfInternships%>.00</h3>
-                        <!-- <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p> -->
-                      </div>
-                      <div>
-                        <p class="statistics-title">Total no. of Universities </p>
-                        <h3 class="rate-percentage"><%= noOfUniversities%>.00</h3>
-                        <!-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p> -->
-                      </div>
-                      <div class="d-none d-md-block">
-                        <p class="statistics-title">Total no. of Colleges</p>
-                        <h3 class="rate-percentage"><%= noOfColleges%>.00</h3>
-                        <!-- <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p> -->
-                      </div>
-                      <div class="d-none d-md-block">
-                        <p class="statistics-title">Total no. of Scholarships</p>
-                        <h3 class="rate-percentage">68.8</h3>
-                        <!-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p> -->
-                      </div>
-                      
                     </div>
                   </div>
                 </div>
-                
-                <div class="row">
-                  <div class="col-lg-4 d-flex flex-column">
-                      <div class="row flex-grow">
-                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
-                              <div class="card card-rounded">
-                                  <div class="card-body">
-                                      <div class="row">
-                                          <div class="col-sm-6">
-                                              <div class="d-flex justify-content-between align-items-center mb-2 mb-sm-0">
-                                                  <div class="circle-progress-width">
-                                                      <div id="totalVisitors" class="progressbar-js-circle pr-2"></div>
-                                                  </div>
-                                                  <div>
-                                                      <p class="text-small mb-2">Total Visitors</p>
-                                                      <h4 class="mb-0 fw-bold">26.80%</h4>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="col-sm-6">
-                                              <div class="d-flex justify-content-between align-items-center">
-                                                  <div class="circle-progress-width">
-                                                      <div id="visitperday" class="progressbar-js-circle pr-2"></div>
-                                                  </div>
-                                                  <div>
-                                                      <p class="text-small mb-2">Visits per day</p>
-                                                      <h4 class="mb-0 fw-bold">9065</h4>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
               </div>
 
-                <div class="row">
-                  <div class="col-lg-12 d-flex flex-column">
-        
-                    <div class="row flex-grow">
-                      <div class="col-12 grid-margin stretch-card">
-                        <div class="card card-rounded">
-                          <div class="card-body">
-                            <div class="d-sm-flex justify-content-between align-items-start">
+              <div class="row">
+                <div class="col-lg-12 d-flex flex-column">
+
+                  <div class="row flex-grow">
+                    <div class="col-12 grid-margin stretch-card">
+                      <div class="card card-rounded">
+                        <div class="card-body">
+                          <div class="d-sm-flex justify-content-between align-items-start">
+                            <div>
+
+                            </div>
+                            <% if(Details.role==='owner' || Details.role==='Owner' || Details.role==='OWNER' ) { %>
                               <div>
-                                
-                              </div>
-                              <% if(Details.role === 'owner' || Details.role === 'Owner' || Details.role === 'OWNER' ) { %>
-                              <div>
-                                <a class="btn btn-primary btn-lg text-white mb-0 me-0"href="/admin/dashboard/createuser" ><i
-                                    class="mdi mdi-account-plus"></i>Add new user</a>
+                                <a class="btn btn-primary btn-lg text-white mb-0 me-0"
+                                  href="/admin/dashboard/createuser"><i class="mdi mdi-account-plus"></i>Add new
+                                  user</a>
                               </div>
                               <%} %>
-                            </div>
+                          </div>
 
-                          
-                            <div class="table-responsive  mt-1">
-                              <table class="table select-table">
-                                <thead>
-                                  <tr>
-                                    <th>User</th>
-                                    <th>Role</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                  </tr>
-                                </thead>
-                                
-                                <tbody>
-                                  <% if(Details.role == 'admin' || Details.role == 'Admin' || Details.role == 'ADMIN' ){ %>
-                                  <% if(userList.length > 0){ %>
-                                    <% userList.forEach(user => { %>
-                                  <tr>
-                                    
-                                    <td>
-                                      <div class="d-flex ">
-                                        <img src="../../<%= user.profile_img %>" alt="">
-                                        <div>
-                                          <h6><%= user.name %></h6>
-                                          <p><%= user.email %> </p>
-                                        </div>
-                                      </div>
-                                    </td>
-                                    <td>
-                                      <h6><%= user.role %></h6>
-                                      <p><%= user.phone %></p>
-                                    </td>
-                                    
-                                    <td>
-                                      <div class="badge badge-opacity-success"><%= user.status %></div>
-                                    </td>
 
-                                    <td>
-                                      <div class="badge badge-opacity-danger"> Deprived </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <% }) %>
-                                    <% } %>
-                                    <% } else{ %>
-                                      <% if(userList.length > 0){ %>
-                                        <% userList.forEach(user => { %>
+                          <div class="table-responsive  mt-1">
+                            <table class="table select-table">
+                              <thead>
+                                <tr>
+                                  <th>User</th>
+                                  <th>Role</th>
+                                  <th>Status</th>
+                                  <th>Action</th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <% if(Details.role=='admin' || Details.role=='Admin' || Details.role=='ADMIN' ){ %>
+                                  <% if(userList.length> 0){ %>
+                                    <% userList.forEach(user=> { %>
                                       <tr>
-                                        
+
                                         <td>
                                           <div class="d-flex ">
                                             <img src="../../<%= user.profile_img %>" alt="">
                                             <div>
-                                              <h6><%= user.name %></h6>
-                                              <p><%= user.email %> </p>
+                                              <h6>
+                                                <%= user.name %>
+                                              </h6>
+                                              <p>
+                                                <%= user.email %>
+                                              </p>
                                             </div>
                                           </div>
                                         </td>
                                         <td>
-                                          <h6><%= user.role %></h6>
-                                          <p><%= user.phone %></p>
-                                        </td>
-                                        
-                                        <td>
-                                          <div class="badge badge-opacity-success"><%= user.status %></div>
+                                          <h6>
+                                            <%= user.role %>
+                                          </h6>
+                                          <p>
+                                            <%= user.phone %>
+                                          </p>
                                         </td>
 
                                         <td>
-                                          <a href="/admin/delete/<%= user._id %>" class="badge badge-opacity-danger" style="text-decoration: none;">Delete</a>
+                                          <div class="badge badge-opacity-success">
+                                            <%= user.status %>
+                                          </div>
+                                        </td>
+
+                                        <td>
+                                          <div class="badge badge-opacity-danger"> Deprived </a>
                                         </td>
                                       </tr>
                                       <tr>
                                         <% }) %>
-                                    <% } %>
-                                      <% } %>
-                                </tbody>
-                              </table>
+                                          <% } %>
+                                            <% } else{ %>
+                                              <% if(userList.length> 0){ %>
+                                                <% userList.forEach(user=> { %>
+                                      <tr>
+
+                                        <td>
+                                          <div class="d-flex ">
+                                            <img src="../../<%= user.profile_img %>" alt="">
+                                            <div>
+                                              <h6>
+                                                <%= user.name %>
+                                              </h6>
+                                              <p>
+                                                <%= user.email %>
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <h6>
+                                            <%= user.role %>
+                                          </h6>
+                                          <p>
+                                            <%= user.phone %>
+                                          </p>
+                                        </td>
+
+                                        <td>
+                                          <div class="badge badge-opacity-success">
+                                            <%= user.status %>
+                                          </div>
+                                        </td>
+
+                                        <td>
+                                          <a href="/admin/delete/<%= user._id %>" class="badge badge-opacity-danger"
+                                            style="text-decoration: none;">Delete</a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <% }) %>
+                                          <% } %>
+                                            <% } %>
+                              </tbody>
+                            </table>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row flex-grow">
+                    <div class="col-md-6 col-lg-6 grid-margin stretch-card">
+                      <div class="card card-rounded">
+                        <div class="card-body card-rounded">
+                          <h4 class="card-title  card-title-dash">User Logs</h4>
+                          <div class="list align-items-center border-bottom py-2">
+                            <% if(loggerList.length> 0){ console.log('in the loop') %>
+                              <% loggerList.forEach(log=> { %>
+                                <div class="mt-1 wrapper w-100">
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <p class="mb-2 font-weight-medium">
+                                        <%= log.user %>
+                                      </p>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <p class="mb-2 font-weight-medium">
+                                        In-Time
+                                      </p>
+                                    </div>
+
+                                    
+                                    <div class="col-6">
+                                      <div class="d-flex align-items-center">
+
+                                        <i class="mdi mdi-calendar text-muted me-1"></i>
+                                        <p class="mb-0 text-small text-muted">
+                                          <%= log.createdAt.getDate() %>-<%= log.createdAt.getMonth()+1 %>-<%=
+                                                log.createdAt.getFullYear() %>
+                                        </p>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="d-flex align-items-center">
+                                        <i class="mdi mdi-calendar-clock text-muted me-1"></i>
+                                        <p class="mb-0 text-small text-muted">
+                                          <%= log.createdAt.getHours() %>-<%= log.createdAt.getMinutes() %>-<%=
+                                                log.createdAt.getSeconds() %>
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <% }) %>
+                                  <% } %>
+                          </div>
+
+                          <div class="list align-items-center pt-3">
+                            <div class="wrapper w-100">
+                              <p class="mb-0">
+                                <a href="#" class="fw-bold text-primary">Show all <i
+                                    class="mdi mdi-arrow-right ms-2"></i></a>
+                              </p>
                             </div>
-                             
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="row flex-grow">
-                      <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                        <div class="card card-rounded">
-                          <div class="card-body card-rounded">
-                            <h4 class="card-title  card-title-dash">User Logs</h4>
-                            <div class="list align-items-center border-bottom py-2">
-                              <% if(loggerList.length> 0){ console.log('in the loop') %>
-                                <% loggerList.forEach(log => { %>
-                              <div class="mt-1 wrapper w-100">
-                                <p class="mb-2 font-weight-medium">
-                                  <%= log.user %>
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                  <div class="d-flex align-items-center">
-                                    <i class="mdi mdi-calendar text-muted me-1"></i>
-                                    <p class="mb-0 text-small text-muted"><%= log.createdAt.getDate() %>-<%= log.createdAt.getMonth()+1 %>-<%= log.createdAt.getFullYear() %></p>
-                                    
-                                      <i class="ml-5 mdi mdi-calendar-clock text-muted me-1"></i>
-                                      
-                                      <p class="mb-0 text-small text-muted"><%= log.createdAt.getHours() %>-<%= log.createdAt.getMinutes() %>-<%= log.createdAt.getSeconds() %></p>
-                                    
-                                  </div>
-                                </div>
-                              </div>
-                                <% }) %>
-                              <% } %>
-                            </div>
-                            
-                            <div class="list align-items-center pt-3">
-                              <div class="wrapper w-100">
-                                <p class="mb-0">
-                                  <a href="#" class="fw-bold text-primary">Show all <i
-                                      class="mdi mdi-arrow-right ms-2"></i></a>
-                                </p>
-                              </div>
-                            </div>
+                    <div class="col-md-6 col-lg-6 grid-margin stretch-card">
+                      <div class="card card-rounded">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h4 class="card-title card-title-dash">Activities</h4>
+                            <!-- <p class="mb-0">20 finished, 5 remaining</p> -->
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                        <div class="card card-rounded">
-                          <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                              <h4 class="card-title card-title-dash">Activities</h4>
-                              <!-- <p class="mb-0">20 finished, 5 remaining</p> -->
-                            </div>
-                            <ul class="bullet-line-list">
-                              <% if(activities.length > 0) {  %>
-                                <% activities.forEach(activity => { %>
-                              <li>
-                                <div class="d-flex justify-content-between">
-                                  <div><span class="text-light-green"><%= activity.user %></span> created a <%= activity.task %>
+                          <ul class="bullet-line-list">
+                            <% if(activities.length> 0) { %>
+                              <% activities.forEach(activity=> { %>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">
+                                        <%= activity.user %>
+                                      </span> created a <%= activity.task %>
+                                    </div>
+                                    <p>
+                                      <%= activity.createdAt.getHours() %>-<%= activity.createdAt.getMinutes() %>-<%=
+                                            activity.createdAt.getSeconds() %> &nbsp&nbsp&nbsp&nbsp<%=
+                                              activity.createdAt.getFullYear() %>-<%= activity.createdAt.getMonth()+1 %>
+                                                -<%= activity.createdAt.getDate() %>
+                                    </p>
                                   </div>
-                                  <p><%= activity.createdAt.getHours() %>-<%= activity.createdAt.getMinutes() %>-<%= activity.createdAt.getSeconds() %> &nbsp&nbsp&nbsp&nbsp<%= activity.createdAt.getFullYear() %>-<%= activity.createdAt.getMonth()+1 %>-<%= activity.createdAt.getDate() %>   </p>
-                                </div>
-                              </li>
-                              <% }) %>
-                              <% } %>
-                            </ul>
-                            <div class="list align-items-center pt-3">
-                              <div class="wrapper w-100">
-                                <p class="mb-0">
-                                  <a href="#" class="fw-bold text-primary">Show all <i
-                                      class="mdi mdi-arrow-right ms-2"></i></a>
-                                </p>
-                              </div>
+                                </li>
+                                <% }) %>
+                                  <% } %>
+                          </ul>
+                          <div class="list align-items-center pt-3">
+                            <div class="wrapper w-100">
+                              <p class="mb-0">
+                                <a href="#" class="fw-bold text-primary">Show all <i
+                                    class="mdi mdi-arrow-right ms-2"></i></a>
+                              </p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <!-- <div class="col-lg-4 d-flex flex-column">
+                </div>
+                <!-- <div class="col-lg-4 d-flex flex-column">
                     <div class="row flex-grow">
                       <div class="col-12 grid-margin stretch-card">
                         <div class="card card-rounded">
@@ -478,10 +538,10 @@
                       </div>
                     </div>
                   </div> -->
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
