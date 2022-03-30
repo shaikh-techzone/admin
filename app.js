@@ -18,6 +18,8 @@ const college = require('./routes/college');
 const viewcollege = require('./routes/viewCollege');
 const university = require('./routes/university');
 const viewuniversity = require('./routes/viewUniversity');
+const scholarship = require('./routes/scholarship');
+const viewscholarship = require ('./routes/viewScholarship');
 
 //Creating express app
 const app = express();
@@ -75,3 +77,5 @@ app.use('/', college);
 app.use('/', viewcollege);
 app.use('/', university);
 app.use('/', viewuniversity);
+app.use('/', scholarship);
+app.use('/', viewscholarship);
