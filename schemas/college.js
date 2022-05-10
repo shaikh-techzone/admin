@@ -13,6 +13,7 @@ const CollegeSchema = new mongoose.Schema(
     minimum_percent: { type: String, required: true },
     rank: { type: String, required: true },
     scholarship: { type: String, required: true },
+    deadline: { type: String, required: true },
   },
   {
     collection: "Colleges",
