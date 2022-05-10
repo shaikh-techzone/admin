@@ -1,40 +1,39 @@
 <div class="main-panel">
-    <div class="content-wrapper">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="home-tab">
-            <div class="d-sm-flex align-items-center justify-content-between border-bottom">
-              <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="" role="tab"
-                    aria-controls="overview" aria-selected="true">Scholarship</a>
-                </li>
-              </ul>
-  
-            </div>
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="home-tab">
+          <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="" role="tab" aria-controls="overview" aria-selected="true">Scholarship</a>
+              </li>
+            </ul>
+
           </div>
         </div>
       </div>
-  
-      <div class="row mt-2">
-        <div class="col-12 grid-margin stretch-card">
-          <div class="card">
-  
-            <!-- ---Flash messages--- -->
-            <% if(scholarship_toast !='' ){ %>
-              <% scholarship_toast.forEach(message=>{%>
-                <div style="text-align: center; position: relative;
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+
+          <!-- ---Flash messages--- -->
+          <% if(scholarship_toast !='' ){ %>
+          <% scholarship_toast.forEach(message=>{%>
+          <div style="text-align: center; position: relative;
               text-align: center;  width: 100%;border-top-left-radius: 20px;
       border-top-right-radius: 20px;" class="alert alert-<%=message.type%> ">
-                  <button type="button" class="close" data-dismiss="alert" style="position: relative; right:10px;
+            <button type="button" class="close" data-dismiss="alert" style="position: relative; right:10px;
                 bottom: 0px; border: none;">&times;</button>
-                  <strong>
-                    <%= message.intro %>
-                  </strong>
-                  <%= message.message %>
-                </div>
-                <%}) %>
-                  <%}%>
+            <strong>
+              <%= message.intro %>
+            </strong>
+            <%= message.message %>
+          </div>
+          <%}) %>
+          <%}%>
                     <!-- ---Flash messages--- -->
   
                     <div class="card-body">
@@ -152,7 +151,15 @@
                           </div>
                         </div>
   
-                       
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputPassword4">Deadline<span style="color: red">*</span></label>
+                              <input type="date" class="form-control" id="exampleInputPassword4" 
+                                name="deadline" required>
+                            </div>
+                          </div>
+                        </div>
                         
                         <button type="submit" class="btn btn-primary me-2">Create</button>
                       </form>

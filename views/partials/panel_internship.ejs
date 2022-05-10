@@ -6,8 +6,7 @@
           <div class="d-sm-flex align-items-center justify-content-between border-bottom">
             <ul class="nav nav-tabs" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="" role="tab"
-                  aria-controls="overview" aria-selected="true">Internship</a>
+                <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="" role="tab" aria-controls="overview" aria-selected="true">Internship</a>
               </li>
             </ul>
 
@@ -22,19 +21,19 @@
 
           <!-- ---Flash messages--- -->
           <% if(internship_toast !='' ){ %>
-            <% internship_toast.forEach(message=>{%>
-              <div style="text-align: center; position: relative;
+          <% internship_toast.forEach(message=>{%>
+          <div style="text-align: center; position: relative;
             text-align: center;  width: 100%;border-top-left-radius: 20px;
     border-top-right-radius: 20px;" class="alert alert-<%=message.type%> ">
-                <button type="button" class="close" data-dismiss="alert" style="position: relative; right:10px;
+            <button type="button" class="close" data-dismiss="alert" style="position: relative; right:10px;
               bottom: 0px; border: none;">&times;</button>
-                <strong>
-                  <%= message.intro %>
-                </strong>
-                <%= message.message %>
-              </div>
-              <%}) %>
-                <%}%>
+            <strong>
+              <%= message.intro %>
+            </strong>
+            <%= message.message %>
+          </div>
+          <%}) %>
+          <%}%>
                   <!-- ---Flash messages--- -->
 
                   <div class="card-body">
@@ -134,6 +133,16 @@
                             <label for="exampleInputPassword4">Company Details<span style="color: red">*</span></label>
                             <textarea type="text" class="form-control" id="exampleInputPassword4" 
                               placeholder="Company Details" style="min-height: 6rem;" name="companydetails" required></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Deadline<span style="color: red">*</span></label>
+                            <input type="date" class="form-control" id="exampleInputPassword4" 
+                              name="deadline" required>
                           </div>
                         </div>
                       </div>
