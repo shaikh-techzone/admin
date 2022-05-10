@@ -45,6 +45,7 @@ router.post("/admin/dashboard/college", async (req, res) => {
     let rank = req.body.rank;
     let scholarship = req.body.scholarship;
     let type = req.body.type;
+    let deadline = req.body.deadline;
 
     const College = new college({
       name,
@@ -58,6 +59,7 @@ router.post("/admin/dashboard/college", async (req, res) => {
       rank,
       scholarship,
       type,
+      deadline,
     });
     College.save()
       .then(() => {
