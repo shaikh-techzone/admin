@@ -43,6 +43,7 @@ router.post("/admin/dashboard/job", async (req, res) => {
     let category = req.body.category;
     let company_detail = req.body.companydetails;
     let deadline = req.body.deadline;
+    let city = req.body.city;
 
     const Job = new job({
       title,
@@ -56,6 +57,7 @@ router.post("/admin/dashboard/job", async (req, res) => {
       category,
       company_detail,
       deadline,
+      city,
     });
     Job.save()
       .then(() => {

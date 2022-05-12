@@ -13,6 +13,7 @@ const jobSchema = new mongoose.Schema(
     category: { type: String, required: true },
     company_detail: { type: String, required: true },
     deadline: { type: String, required: true },
+    city: { type: String, required: true },
   },
   {
     collection: "Jobs",
